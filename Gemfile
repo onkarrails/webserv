@@ -16,3 +16,5 @@ end
 gem 'jquery-rails'
 
 gem "rspec-rails", :group => [:test, :development]
+
+gem 'devise'
