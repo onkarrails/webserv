@@ -1,4 +1,8 @@
 Webserv::Application.routes.draw do
+  resources :branches
+
+  resources :organizations
+
   devise_for :users
 
   # The priority is based upon order of creation:
