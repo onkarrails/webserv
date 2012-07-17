@@ -1,6 +1,4 @@
 class BranchesController < ApplicationController
-  # GET /branches
-  # GET /branches.json
   def index
     @branches = Branch.all
 
@@ -10,8 +8,6 @@ class BranchesController < ApplicationController
     end
   end
 
-  # GET /branches/1
-  # GET /branches/1.json
   def show
     @branch = Branch.find(params[:id])
 
@@ -21,10 +17,8 @@ class BranchesController < ApplicationController
     end
   end
 
-  # GET /branches/new
-  # GET /branches/new.json
   def new
-    @branch = Branch.new
+    @branch = @organization.branches.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,15 +26,12 @@ class BranchesController < ApplicationController
     end
   end
 
-  # GET /branches/1/edit
   def edit
     @branch = Branch.find(params[:id])
   end
 
-  # POST /branches
-  # POST /branches.json
   def create
-    @branch = Branch.new(params[:branch])
+    @branch = @organization.branches.new(params[:branch])
 
     respond_to do |format|
       if @branch.save
@@ -53,8 +44,6 @@ class BranchesController < ApplicationController
     end
   end
 
-  # PUT /branches/1
-  # PUT /branches/1.json
   def update
     @branch = Branch.find(params[:id])
 
@@ -69,8 +58,6 @@ class BranchesController < ApplicationController
     end
   end
 
-  # DELETE /branches/1
-  # DELETE /branches/1.json
   def destroy
     @branch = Branch.find(params[:id])
     @branch.destroy

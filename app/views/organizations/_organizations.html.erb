@@ -1,0 +1,39 @@
+
+<table class="table">
+  <tr class="thead">
+    <th>Name</th>
+    <th>Account Type</th>
+    <th>Created On</th>
+    <th>Contract Start</th>
+    <th>Contract End</th>
+    <th>Duration Remaining</th>
+    <th>Type</th>
+  </tr>
+
+<% @organizations.each do |organization| %>
+  <tr>
+    <td><%= link_to organization.name, organization %></td>
+    
+    <td><%= (organization.account_type || "").humanize %></td>
+    <td><%= organization.created_at.strftime("%m-%d-%Y")%></td>
+    <td><%= organization.contract.start_date.strftime("%m-%d-%Y") %></td>
+    <td><%= organization.contract.end_date.strftime("%m-%d-%Y") %></td>
+    <td><%= distance_of_time_in_words(organization.contract.end_date, Date.today, false)%></td>
+    <td><%= organization.organization_type %></td> 
+		<td> 
+			<div class='dropdown-list'>
+				<a href='#' class='action-link'>Actions<img src='/assets/down-arrow.png' class="down_arrow">
+				<ul class="orgs actions-link" style='display: none;'>
+					<li>
+						<% if organization.active? %>
+							<%= link_to "Deactivate", deactivate_organization_url(organization), confirm: 'Are you sure?', method: :post %>
+						<% else %>
+							<%= link_to "Active", reactivate_organization_url(organization), method: :post %>
+						<% end %>
+					</li>
+						<%= link_to "Upgrade", organization_url(organization), method: :post, class: 'not_implemented' %>
+					</li>
+  </tr>
+<% end %>
+</table>
+<br />

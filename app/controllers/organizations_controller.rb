@@ -1,7 +1,6 @@
 class OrganizationsController < ApplicationController
-  # GET /organizations
-  # GET /organizations.json
-  def index
+  include Activation 
+  def index	
     @organizations = Organization.all
 
     respond_to do |format|
@@ -10,41 +9,44 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # GET /organizations/1
-  # GET /organizations/1.json
+ 
   def show
-    @organization = Organization.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
+  	@organization = Organization.find(params[:id])
+     respond_to do |format|
+		  format.html # show.html.erb
       format.json { render json: @organization }
     end
-  end
-
-  # GET /organizations/new
-  # GET /organizations/new.json
+	end
+	
   def new
     @organization = Organization.new
-
+    @branch = @organization.branches.new
+    @contract = @organization.build_contract
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @organization }
     end
   end
 
-  # GET /organizations/1/edit
   def edit
     @organization = Organization.find(params[:id])
   end
 
-  # POST /organizations
-  # POST /organizations.json
   def create
     @organization = Organization.new(params[:organization])
-
-    respond_to do |format|
-      if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
+		org_valid = @organization.valid?
+		@branch = @organization.branches.new(params[:branch])
+		@contract = @organization.build_contract(params[:contract])
+    branch_valid = @branch.valid?
+		
+    respond_to do |format|	
+      
+      if org_valid && branch_valid
+      	@organization.save
+      	@contract.save
+      	@branch.save(:validate => false)
+        format.html { redirect_to @organization, notice: 'successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }
@@ -53,8 +55,6 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # PUT /organizations/1
-  # PUT /organizations/1.json
   def update
     @organization = Organization.find(params[:id])
 
@@ -69,8 +69,6 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # DELETE /organizations/1
-  # DELETE /organizations/1.json
   def destroy
     @organization = Organization.find(params[:id])
     @organization.destroy
@@ -80,4 +78,5 @@ class OrganizationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

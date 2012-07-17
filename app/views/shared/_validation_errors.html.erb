@@ -1,0 +1,10 @@
+<% if target.errors.any? %>
+	<div class="error_explanation">
+		<strong><%= pluralize(target.errors.count, "error") %> prohibited this organization from being saved:</strong>
+		<ul>
+			<% target.errors.full_messages.each do |msg| %>
+			  <li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

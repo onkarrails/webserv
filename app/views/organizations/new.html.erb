@@ -1,5 +1,118 @@
-<h1>New organization</h1>
+<div class='new-organization' >
+	<fieldset class='fieldset_box'>
+		<legend>Organization Information</legend>
+			<%= form_tag "/organizations" do %>
+				<%= render :partial => 'shared/validation_errors', :locals => { :target => @organization } %>
 
-<%= render 'form' %>
+					<div class="field">
+						<span>Organization Name<strong class="required_mark">*</strong></span> 
+						<%= text_field :organization, :name %>
+					</div>
+					<div class="field">
+					<span>Organization Type<strong class="required_mark">*</strong></span>
+					<%= select(:organization,:organization_type,[['Insurance Firm', 'Insurance Firm'],['Independent Adjuster', 'Independent Adjuster'], ['Other', 'Other'], ['Service Provider','Service Provider']])%> 
+					</div>
+					<div class="field">
+					<span> Address Line1<strong class="required_mark">*</strong></span>
+					<%= text_field :organization, :address_line1 %>
+					</div>
+					<div class="field">
+					<span> Address Line2</span>
+					<%= text_field :organization, :address_line2 %>
+					</div>
+					<div class"field">
+					<span> City<strong class="required_mark">*</strong></<span>
+					<%= text_field :organization, :city %>
+					</div>
+					<div class="field">
+					 <span> State<strong class="required_mark">*</strong></span>
+					 <%= text_field :organization, :state %>
+					</div>
+					<div class="field">
+					<span>Zip<strong class="required_mark">*</strong></span>
+					<%= text_field :organization, :zip %>
+					</div>
+					<div class="field">
+						<span>Length of time to store claims</span>
+						 <%= number_field :organization, :unused_claim_store_days %>
+					</div>
+					<div class="field">
+					<span>Accepted Amount Threshold<span>
+					<%= text_field :organization, :accepted_threshold %>
+					<div>
+					<div class="field">
+					<span>Search Engine</span>
+					<%= select(":organization", "search_engine",[['Shopping Engine','Shopping Engine'],['Google Engine', 'Google Engine']]) %>
+					</div>
+					<div class="field">
+					<strong>Service Bureau</strong>
+					<%= check_box :organization, :service_bureau, :class => 'check_box' %>
+					</div>
+					</fieldset>
+					
+					<fieldset>
+					<legend>Payment Info</legend>
+				<%= render :partial => 'shared/validation_errors', :locals => { :target => @contract } %>
 
-<%= link_to 'Back', organizations_path %>
+					<div class="field">
+					<span>Start Date<strong class="required_mark">*</strong></span>
+					<%= date_select :contract, :start_date %>
+					</div>
+					<div class="field">
+					<span>Contract Duration(in months)<strong class="required_mark">*</strong></span>
+					<%= text_field :contract, :duration %>
+					</div>
+					</fieldset>
+					
+					<fieldset>
+					<legend>Organization Administrator Contact Info</legend>
+					<div class="field">
+						<span> Email<strong class="required_mark">*</strong></span> 
+						<%= text_field :organization, :email %>
+					</div>
+					</fieldset>
+					
+				  <fieldset>
+					<legend>Branch Information</legend>	
+					<%= render :partial => 'shared/validation_errors', :locals => { :target => @branch } %>
+
+					<div class="field">
+						<span>Branch Name<strong class="required_mark">*</strong></span>
+					 	<%= text_field :branch, :name %>
+					</div>
+					<div class="button" style="margin-bottom: 1em">
+					<a id="copy_address_info" class='button gray'><span>Copy Organization Address</span></a>
+					</div>
+					<div class="field">
+					<span>Address Line1<strong class='required_mark'>*</strong></span>
+					<%= text_field :branch, :address_line1 %>
+					</div>
+					<div class="field">
+					<span>Address Line2</span>
+					<%= text_field :branch, :address_line2 %>
+					</div>
+					<div class="field">
+						<span>State<strong class="required_mark">*</strong></span>
+						<%= text_field :branch, :state %>
+					</div>
+					<div class="field">
+					<span>Zip<strong class='required_mark'>*</strong></span>
+					<%= text_field :branch, :zip %>
+					</div>
+					</fieldset>
+					
+					<fieldset>
+					<legend>Branch Supervisor Contact Info</legend>
+					<div class="field">
+						<span>Branch Supervisor Contact Email<strong class='required_mark'>*</strong></span>
+						<%= text_field :branch, :email %>
+					</div>
+					</fieldset>
+					<div class="actions">
+						<button type="submit" title="Create" style="float: left;margin-right: 16px;" method=Create>Submit</button>
+					</div>
+					<div class='clear'></div>
+				<% end %>
+</div>
+				
+
