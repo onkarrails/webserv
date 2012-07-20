@@ -12,10 +12,7 @@ class OrganizationsController < ApplicationController
  
   def show
   	@organization = Organization.find(params[:id])
-     respond_to do |format|
-		  format.html # show.html.erb
-      format.json { render json: @organization }
-    end
+    @branches = @organization.branches
 	end
 	
   def new
@@ -42,15 +39,13 @@ class OrganizationsController < ApplicationController
 		
     respond_to do |format|	
       
-      if org_valid && branch_valid
-      	@organization.save
-      	@contract.save
+      if org_valid && branch_valid && @contract.valid?
+      	@organization.save!
+      	@contract.save!
       	@branch.save(:validate => false)
-        format.html { redirect_to @organization, notice: 'successfully created.' }
-        format.json { render json: @organization, status: :created, location: @organization }
+      	format.html { redirect_to @organization, notice: 'successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
   end
