@@ -1,28 +1,30 @@
+<p id="notice"><%= notice %></p>
 
-<table class="table">
-	<tr class="thead">
-		<th><b>Name:</b></th>
-		<th><b>Email</b></th>
-		<th><b>Status</b>
-		<th><b>Confirmation</b></th>
-	</tr>
-	<tr>
-		<td><%= @organization.name %></td>
-		<td><%= @organization.email %></td>
-		<td>Not Implimented</td>
-		<td>Not Implimented</td>
-		<td> 
-			<div class='dropdown-list'>
-				<a href='#' class='action-link'>Actions<img src='/assets/down-arrow.png' class="down_arrow">
-				<ul class="orgs actions-link" style='display: none;'>
-					<li><%= link_to 'Edit', edit_organization_path(@organization) %>
-					</li>
-					<li><%= link_to 'Back', organizations_path %>
-					</li>
-				</ul>
-			</td>
-			<td>
-			<%= link_to 'Edit Profile', edit_organization_path(@organization) %>
-			</td>
-	</tr>
-</table>
+<p>
+  <b>Name:</b>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <b>Organization type:</b>
+  <%= @organization.organization_type %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @organization.state %>
+</p>
+
+<p>
+  <b>Unused claim store days:</b>
+  <%= @organization.unused_claim_store_days %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @organization.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>

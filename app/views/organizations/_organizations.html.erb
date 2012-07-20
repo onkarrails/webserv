@@ -12,7 +12,7 @@
 
 <% @organizations.each do |organization| %>
   <tr>
-    <td><%= link_to organization.name, organization -%></td>
+    <td><%= link_to organization.name, organization %></td>
     
     <td><%= (organization.account_type || "").humanize %></td>
     <td><%= organization.created_at.strftime("%m-%d-%Y")%></td>
@@ -22,16 +22,17 @@
     <td><%= organization.organization_type %></td> 
 		<td> 
 			<div class='dropdown-list'>
-				<a href='#' class='action-link'>Actions<img src='/assets/down-arrow.png' class="down_arrow">	
+				<a href='#' class='action-link'>Actions<img src='/assets/down-arrow.png' class="down_arrow">
 				<ul class="orgs actions-link" style='display: none;'>
 					<li>
-						
+						<% if organization.active? %>
 							<%= link_to "Deactivate", deactivate_organization_url(organization), confirm: 'Are you sure?', method: :post %>
-
+						<% else %>
+							<%= link_to "Active", reactivate_organization_url(organization), method: :post %>
+						<% end %>
 					</li>
 						<%= link_to "Upgrade", organization_url(organization), method: :post, class: 'not_implemented' %>
 					</li>
-		</td>
   </tr>
 <% end %>
 </table>
