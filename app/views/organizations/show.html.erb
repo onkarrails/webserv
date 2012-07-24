@@ -1,4 +1,6 @@
+<p id="notice"><%= notice %></p>
 
+<<<<<<< HEAD
 <table class="table">
 	<tr class="thead">
 		<th><b>Name:</b></th>
@@ -33,3 +35,33 @@
 	<%= text_field [:organization, :branch], :email %>
 	<button type='submit' id="invite_admin", method=Create>Invite</button>
 </div>
+=======
+<p>
+  <b>Name:</b>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <b>Organization type:</b>
+  <%= @organization.organization_type %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @organization.state %>
+</p>
+
+<p>
+  <b>Unused claim store days:</b>
+  <%= @organization.unused_claim_store_days %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @organization.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>
+>>>>>>> cfcb78e1dec9926fe9a6988294eaf0375f3cd83d

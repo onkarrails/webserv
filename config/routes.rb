@@ -1,6 +1,7 @@
 Webserv::Application.routes.draw do
 
 
+
 	match 'home' => 'home#index', :via => :get
 	
   resources :organizations do
@@ -15,9 +16,6 @@ Webserv::Application.routes.draw do
 #	match 'users' => 'user#method', :via => :get
   devise_for :users
 
-  resources :users
   root :to => 'organizations#index'
-
-	
 
 end

@@ -18,8 +18,11 @@ gem 'jquery-rails'
 gem "rspec-rails", :group => [:test, :development]
 
 gem 'devise'
+<<<<<<< HEAD
 gem 'factory_girl'
 
 
 gem "carrierwave"
 gem "rmagick"
+=======
+>>>>>>> cfcb78e1dec9926fe9a6988294eaf0375f3cd83d

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720104001) do
+ActiveRecord::Schema.define(:version => 20120715172048) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -52,15 +52,6 @@ ActiveRecord::Schema.define(:version => 20120720104001) do
     t.boolean  "service_bureau"
     t.string   "account_type"
     t.boolean  "active"
-    t.integer  "user_id"
-    t.string   "image"
-  end
-
-  create_table "user_organizations", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "organization_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -76,18 +67,6 @@ ActiveRecord::Schema.define(:version => 20120720104001) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.integer  "organization_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "phone"
-    t.integer  "mobile"
-    t.integer  "fax"
-    t.string   "address_line_1"
-    t.string   "address_line_2"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.boolean  "terms_agreements"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
