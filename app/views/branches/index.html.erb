@@ -1,11 +1,11 @@
-<h1>Listing branches</h1>
+<h3>Branches for <%= @organization.name %></h3>
 
 <table>
   <tr>
     <th>Name</th>
     <th>State</th>
     <th>Email</th>
-    <th></th>
+    <th>Zip</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,13 +15,14 @@
     <td><%= branch.name %></td>
     <td><%= branch.state %></td>
     <td><%= branch.email %></td>
-    <td><%= link_to 'Show', branch %></td>
-    <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
-    <td><%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<td><%= branch.zip %></td>
+    <td><%= link_to 'Show', organization_branch_path(@organization, branch) %></td>
+    <td><%= link_to 'Edit', edit_organization_branch_path(@organization, branch) %></td>
+    <td><%= link_to 'Destroy', [@organization, branch], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Branch', new_branch_path %>
+<%= link_to 'New Branch', new_organization_branch_path %>

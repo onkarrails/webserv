@@ -6,6 +6,7 @@
 		<th><b>Status</b>
 		<th><b>Confirmation</b></th>
 	</tr>
+	
 	<tr>
 		<td><%= @organization.name %></td>
 		<td><%= @organization.email %></td>
@@ -26,3 +27,9 @@
 			</td>
 	</tr>
 </table>
+<br /><br /><br />
+<div class="field">
+	<span>Invite Branch Admin</span>
+	<%= text_field [:organization, :branch], :email %>
+	<button type='submit' id="invite_admin", method=Create>Invite</button>
+</div>

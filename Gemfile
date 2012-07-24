@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem "rspec-rails", :group => [:test, :development]
 
 gem 'devise'
-
+gem 'factory_girl'
 
 
 gem "carrierwave"

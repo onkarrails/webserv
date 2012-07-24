@@ -1,6 +1,6 @@
 <div class='new-organization' >
 	<fieldset class='fieldset_box'>
-	<legend>Organization Information</legend>
+	<legend><b>Organization Information</b></legend>
 		<%= form_tag "/organizations" do %>
 			<%= render :partial => 'shared/validation_errors', :locals => { :target => @organization } %>
 			<div class="field">
@@ -50,7 +50,7 @@
 	</fieldset>
 					
 	<fieldset>
-	<legend>Payment Info</legend>
+	<legend><b>Payment Info</b></legend>
 		<%= render :partial => 'shared/validation_errors', :locals => { :target => @contract } %>
 		<div class="field">
 			<span>Start Date<strong class="required_mark">*</strong></span>
@@ -63,7 +63,7 @@
 	</fieldset>
 					
 	<fieldset>
-	<legend>Organization Administrator Contact Info</legend>
+	<legend><b>Organization Administrator Contact Info</b></legend>
 		<div class="field">
 			<span> Email<strong class="required_mark">*</strong></span> 
 			<%= text_field :organization, :email %>
@@ -71,7 +71,7 @@
 	</fieldset>
 				
   <fieldset>
-	<legend>Branch Information</legend>	
+	<legend><b>Branch Information</b></legend>	
 	<%= render :partial => 'shared/validation_errors', :locals => { :target => @branch } %>
 
 		<div class="field">
@@ -100,9 +100,9 @@
 	</fieldset>
 				
 	<fieldset>
-		<legend>Branch Supervisor Contact Info</legend>
+		<legend><b>Branch Supervisor Contact Info</b></legend>
 		<div class="field">
-			<span>Branch Supervisor Contact Email<strong class='required_mark'>*</strong></span>
+			<span>Branch Contact Email<strong class='required_mark'>*</strong></span>
 			<%= text_field :branch, :email %>
 		</div>
 	</fieldset>

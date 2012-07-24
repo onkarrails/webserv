@@ -58,6 +58,23 @@ border-style: ;
 a:-webkit-any-link:active {
 color: -webkit-activelink;
 }
+
+
+
+div.field{
+background-color: #DCDCDC;
+font-size: 16px;
+}
+span{
+float: left;
+    display: inline;
+    margin-right: 24px;
+    font-weight: bold;
+    width: 201px;
+    height: 16px;
+}
+
+
 @import 'tabs';
 
 

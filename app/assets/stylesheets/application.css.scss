@@ -14,7 +14,6 @@ html{
 }
 
 
-
 .container{
   width: 1008px;
   background-color: white;
@@ -34,114 +33,10 @@ content: "";
 clear: both;
 }
 
-.header{
-  height: 100px;
-  background: image-url('transp-gray.png');
-  background-repeat: repeat-both;
-}
-.footer{
-  color: $mediumGray;
-  font-size: 12px;
-
-  float: left;
-  margin: 10px 0 4px 8px;
-
-  a, a:visited, a:hover{
-    color: $mediumGray;
-  }
-}
-
-.content{
-  padding-left: 7px;
-  padding-right: 7px;
-  margin-top: -35px;
-  min-height: 375px;
-}
-.container .header .main_tab{
-  background-repeat: repeat-x;
-  margin: 40px 0px 0px 0px;
-  padding-left: 15px;
-  height: 30px; 
-  list-style: none; 
-  }
-.main_tab li{
-display: inline;
-margin: 10px;
-padding-left: 15px;
-font-size: 25px;
-float: left; 
-}  
-  
-.header{
-  height: 100px;
-  background: image-url('transp-gray.png');
-  background-repeat: repeat-both;
-}
-.content {
-padding-left: 7px;
-padding-right: 7px;
-margin-top: -35px;
-min-height: 375px;
-
-}
-
-a:-webkit-any-link:active {
-color: -webkit-activelink;
-}
-table{
-  border-collapse: collapse;
-  color: $darkGray;
-  width: 970px;
-  text-align: left;
-  th:last-child{
-   text-align: right;
-  }
-}
-th{
-  color: $mediumBlue;
-  font-size: 13px;
-  border-bottom: 1px solid $mediumGray;
-  padding: 2px;
-  text-align: inherit;
-}
-td{
-  border-bottom: 1px solid $mediumGray;
-  padding: 2px;
-}
-td:last-child{
-  text-align: right;
-}
 
 
-.fieldset_box{
-  border: 1px solid $mediumBlue;
-  margin-right: 12px;
-  margin-bottom: 15px;
-  width: 970px;
-  legend{
-    color: $green;
-    font-size: 133.33%;
-    font-weight: bold;
-  }
-}
-fieldset{
-  background-color: white;
-}
-.field{
-  margin-bottom: 12px;
-  span{
-    float: left;
-    display: inline;
-    margin-right: 24px;
-    font-weight: bold;
-    width: 201px;
-    height: 16px;
-  }
-}
 
 
-@import 'tabs';
-@import 'sub_tab';
 
 
 

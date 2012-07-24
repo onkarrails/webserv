@@ -1,29 +1,39 @@
-<%= form_for(@branch) do |f| %>
-  <% if @branch.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
+<%= form_for [@organization, @branch] do |f| %>
 
-      <ul>
-      <% @branch.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <fieldset>
+	<legend>Branch Information</legend>	
+	<%= render :partial => 'shared/validation_errors', :locals => { :target => @branch } %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+		<div class="field">
+			<span>Branch Name<strong class="required_mark">*</strong></span>
+		 	<%= text_field :branch, :name %>
+		</div>
+		<div class="button" style="margin-bottom: 1em">
+			<a id="copy_address_info" class='button gray'><span>Copy Organization Address</span></a>
+		</div>
+		<div class="field">
+			<span>Address Line1<strong class='required_mark'>*</strong></span>
+			<%= text_field :branch, :address_line1 %>
+		</div>
+		<div class="field">
+			<span>Address Line2</span>
+			<%= text_field :branch, :address_line2 %>
+		</div>
+		<div class="field">
+			<span>State<strong class="required_mark">*</strong></span>
+			<%= text_field :branch, :state %>
+		</div>
+		<div class="field">
+			<span>Zip<strong class='required_mark'>*</strong></span>
+			<%= text_field :branch, :zip %>
+		</div>
+		<div class="field">
+			<span>Branch Email<strong class='required_mark'>*</strong></span>
+			<%= text_field :branch, :email %>
+		</div>
+	</fieldset>
+	<div class="actions">
+		<button type="submit" title="Create" style="float: left;margin-right: 16px;" method=Create>Submit</button>
+	</div>
+	<div class='clear'></div>
 <% end %>

@@ -1,20 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
+<div class="field">  <b>Name:</b>
   <%= @branch.name %>
-</p>
-
-<p>
+</div>
+<div class="field">
   <b>State:</b>
   <%= @branch.state %>
-</p>
-
-<p>
+</div>
+<div class="field">
   <b>Email:</b>
   <%= @branch.email %>
-</p>
+ </div>
+<div class="field">
 
-
-<%= link_to 'Edit', edit_branch_path(@branch) %> |
-<%= link_to 'Back', branches_path %>
+<%= link_to 'Edit', edit_organization_branch_path(@branch) %> |
+<%= link_to 'Back', organization_branches_path %>
+</div>

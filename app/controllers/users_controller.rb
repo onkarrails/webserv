@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
- before_filter terms_and_conditions
+ 
+	def index
+	
+	end 
 	def edit
 		@user = User.find(params[:id])
 	end
